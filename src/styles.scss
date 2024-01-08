@@ -1,11 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 body{
+    background-color: burlywood;
     justify-content: center;
     align-items: center;
-    background-image: url("/assets/layout.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;  /* or 'contain' based on your preference */
-    background-position: center center;  /* Center the image */
-    height: 100vh;  /* Ensure the body takes up the full viewport height */
+    // background-image: url("/assets/layout3.avif");
+    // background-repeat: no-repeat;
+    // background-size: cover;  /* or 'contain' based on your preference */
+    // background-position: center center;  /* Center the image */
+    // height: 100vh;  /* Ensure the body takes up the full viewport height */
     margin: 0;
 }

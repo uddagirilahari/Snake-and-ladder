@@ -7,24 +7,6 @@
 
     <div *ngIf="victoryMessage">{{ victoryMessage }}</div>
 
-    
-    <div class="dice-container">
-  <!-- <img class="dice" *ngIf="diceRoll == null" [src]="'assets/dice/dice1.png'" alt="Dice" (click)="rollDice()">
-  <img class="dice" *ngIf="diceRoll !== null" [src]="'assets/dice/dice' + diceRoll + '.png'" alt="Dice" [ngClass]="{'blue': currentPlayer === 2, 'red': currentPlayer === 1, 'yellow': currentPlayer === 3, 'green': currentPlayer === 4}" (click)="rollDice()"> -->
-  <img class="dice rolling" *ngIf="diceRoll == null" [src]="'assets/dice/dice1.png'" alt="Dice" (click)="rollDice()">
-  <img class="dice" *ngIf="diceRoll !== null" [src]="'assets/dice/dice' + diceRoll + '.png'" alt="Dice"
-  [ngClass]="{'rolling': isRolling, 'blue': currentPlayer === 2, 'red': currentPlayer === 1, 'yellow': currentPlayer === 3, 'green': currentPlayer === 4}"
-  (click)="rollDice()"> 
-  
-  <audio #audioPlayer>
-    <source src="/assets/diceSound.mp3" type="audio/mp3">
-</audio>
-  <p *ngIf="currentPlayer=== 2 && isAudio"> Red is moved to {{newPos}}</p>
-  <p *ngIf="currentPlayer=== 3 && isAudio"> Blue is moved to {{newPos}}</p>
-  <p *ngIf="currentPlayer=== 4 && isAudio"> Yellow is moved to {{newPos}}</p>
-  <p *ngIf="currentPlayer=== 1 && num!==0 && isAudio"> Green is moved to {{newPos}}</p>
-</div>
-
   
     <div class="grid-container">
       <div *ngFor="let cell of gridCells" class="grid-cell">
@@ -43,6 +25,22 @@
           <img [src]="'/assets/icons/' + player.icon" alt="Player {{ player.id }}" class="icon"/>
         </div>
       </div>
+    </div>
+    <div class="dice-container">
+      <!-- <img class="dice" *ngIf="diceRoll == null" [src]="'assets/dice/dice1.png'" alt="Dice" (click)="rollDice()">
+      <img class="dice" *ngIf="diceRoll !== null" [src]="'assets/dice/dice' + diceRoll + '.png'" alt="Dice" [ngClass]="{'blue': currentPlayer === 2, 'red': currentPlayer === 1, 'yellow': currentPlayer === 3, 'green': currentPlayer === 4}" (click)="rollDice()"> -->
+      <img class="dice rolling" *ngIf="diceRoll == null" [src]="'assets/dice/dice1.png'" alt="Dice" (click)="rollDice()">
+      <img class="dice" *ngIf="diceRoll !== null" [src]="'assets/dice/dice' + diceRoll + '.png'" alt="Dice"
+      [ngClass]="{'rolling': isRolling, 'blue': currentPlayer === 2, 'red': currentPlayer === 1, 'yellow': currentPlayer === 3, 'green': currentPlayer === 4}"
+      (click)="rollDice()"> 
+      
+      <audio #audioPlayer>
+        <source src="/assets/diceSound.mp3" type="audio/mp3">
+    </audio>
+      <p *ngIf="currentPlayer=== 2 && isAudio"> Red is moved to {{newPos}}</p>
+      <p *ngIf="currentPlayer=== 3 && isAudio"> Blue is moved to {{newPos}}</p>
+      <p *ngIf="currentPlayer=== 4 && isAudio"> Yellow is moved to {{newPos}}</p>
+      <p *ngIf="currentPlayer=== 1 && num!==0 && isAudio"> Green is moved to {{newPos}}</p>
     </div>
   </div>
   

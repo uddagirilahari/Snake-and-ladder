@@ -18,6 +18,7 @@ export class SnakeAndLadderGameComponent {
   num:number=0;
   isAudio:boolean=false;
   newPos!:number;
+  num2!:number;
   @ViewChild('audioPlayer') audioPlayer: any;
   players: Player[] = [
     { id: 1, icon: 'red.png' },
@@ -49,24 +50,56 @@ export class SnakeAndLadderGameComponent {
   
   generateGridCells(): number[] {
     let cells: number[] = [];
-    for (let i = 1; i <= 100; i++) {
+    
+    for(let i= 100; i > 90; i--){
       cells.push(i);
     }
+    for (let i = 81; i <= 90; i++) {
+      cells.push(i);
+    }
+    for(let i= 80; i > 70; i--){
+      cells.push(i);
+    }
+    for (let i = 61; i <= 70; i++) {
+      cells.push(i);
+    }
+    for(let i= 60; i > 50; i--){
+      cells.push(i);
+    }
+    for (let i = 41; i <= 50; i++) {
+      cells.push(i);
+    }
+    for(let i= 40; i > 30; i--){
+      cells.push(i);
+    }
+    
+    for (let i = 21; i <= 30; i++) {
+      cells.push(i);
+    }
+
+    
+    for(let i= 20; i > 10; i--){
+      cells.push(i);
+    }
+    for (let i = 1; i <= 10; i++) {
+      cells.push(i);
+    }
+
     return cells;
   }
 
   generateSnakesAndLadders() {
     const snakeCount = Math.floor(Math.random() * 2) + 6;
     for (let i = 0; i < snakeCount; i++) {
-      const snakePosition = Math.floor(Math.random() * 90) + 11;
-      this.snakes[snakePosition] = true;
+      const snakePosition = Math.floor(Math.random() * 80) + 11;
+      this.snakes[snakePosition!==100?snakePosition:99] = true;
     }
   
     const ladderCount = Math.floor(Math.random() * 2) + 7;
     for (let i = 0; i < ladderCount; i++) {
       let ladderPosition;
       do {
-        ladderPosition = Math.floor(Math.random() * 85) + 1; // Ensure ladder is not in (91 to 100)
+        ladderPosition = Math.floor(Math.random() * 85) + 2; // Ensure ladder is not in (91 to 100)
       } while (this.snakes[ladderPosition]); // Avoid overlap with snakes
       this.ladders[ladderPosition] = true;
 
@@ -125,7 +158,7 @@ export class SnakeAndLadderGameComponent {
       const newPositionAfterSnake= newPosition-Math.floor((Math.random()*(newPosition-1))+1);
       return Math.max(newPositionAfterSnake, 1);
     } else if (this.ladders[newPosition]) {
-      return newPosition+Math.floor((Math.random()* 25)+1);
+      return Math.min(newPosition+Math.floor((Math.random()* 25)+1),95);
     }
     return newPosition;
   }
