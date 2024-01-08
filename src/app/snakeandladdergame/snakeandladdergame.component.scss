@@ -17,7 +17,8 @@ h1{
   height: 50px;
   border: 1px solid #000;
   position: relative;
-  background-color:rgb(242, 144, 144);
+//  background-color:rgb(242, 144, 144);
+  background: linear-gradient(to bottom,  #E2E2E2 0%,#DBDBDB 50%,#D1D1D1 51%,#FEFEFE 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   //background-color: darkkhaki;
 }
 
