@@ -7,8 +7,11 @@
 
     <div *ngIf="victoryMessage">{{ victoryMessage }}</div>
 
-  
-    <div class="grid-container">
+    <div *ngIf="!isStarted" class="inp">
+    <input type="number" [(ngModel)]="userInput" name="userInput" placeholder="Enter no of players(<5)" /><br>
+    <button (click)="onButtonClick()">Submit</button>
+    </div>
+    <div class="grid-container" *ngIf="isStarted">
       <div *ngFor="let cell of gridCells" class="grid-cell">
         {{ cell }}
         <div *ngIf="snakes[cell]">
@@ -26,7 +29,7 @@
         </div>
       </div>
     </div>
-    <div class="dice-container">
+    <div class="dice-container" *ngIf="isStarted">
       <!-- <img class="dice" *ngIf="diceRoll == null" [src]="'assets/dice/dice1.png'" alt="Dice" (click)="rollDice()">
       <img class="dice" *ngIf="diceRoll !== null" [src]="'assets/dice/dice' + diceRoll + '.png'" alt="Dice" [ngClass]="{'blue': currentPlayer === 2, 'red': currentPlayer === 1, 'yellow': currentPlayer === 3, 'green': currentPlayer === 4}" (click)="rollDice()"> -->
       <img class="dice rolling" *ngIf="diceRoll == null" [src]="'assets/dice/dice1.png'" alt="Dice" (click)="rollDice()">

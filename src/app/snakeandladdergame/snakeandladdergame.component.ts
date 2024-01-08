@@ -12,13 +12,15 @@ interface Player {
 })
 export class SnakeAndLadderGameComponent {
   playerCount: number = 4;
+  userInput!:number;
+  isStarted:boolean=false;
   playerStyles: { [key: number]: { top: string, left: string } } = {};
-  snakeEndPositions: { [key: number]: number } = {};
-  ladderEndPositions: { [key: number]: number } = {};
+  // snakeEndPositions: { [key: number]: number } = {};
+  // ladderEndPositions: { [key: number]: number } = {};
   num:number=0;
   isAudio:boolean=false;
   newPos!:number;
-  num2!:number;
+ // num2!:number;
   @ViewChild('audioPlayer') audioPlayer: any;
   players: Player[] = [
     { id: 1, icon: 'red.png' },
@@ -38,9 +40,6 @@ export class SnakeAndLadderGameComponent {
 
   constructor() {
     this.generateSnakesAndLadders();
-    this.players.forEach(player => {
-      this.playerPositions[player.id] = 1;
-    });
     this.players.forEach(player => {
       this.playerPositions[player.id] = 1;
       this.playerStyles[player.id] = { top: '0px', left: '0px' };
@@ -126,7 +125,34 @@ export class SnakeAndLadderGameComponent {
 
   }
 
-  
+  onButtonClick(){
+    this.isStarted=true;
+    if(this.userInput==2){
+      this.playerCount=2;
+      this.players=[
+        { id: 1, icon: 'red.png' },
+        { id: 2, icon: 'blue.png' },
+      ]
+    }
+    else if(this.userInput==3){
+      this.playerCount=3;
+      this.players=[
+        { id: 1, icon: 'red.png' },
+        { id: 2, icon: 'blue.png' },
+        { id: 3, icon: 'yellow.png' },
+      ]
+    }
+    else if(this.userInput==4){
+      this.playerCount=4;
+      this.players=[
+        { id: 1, icon: 'red.png' },
+        { id: 2, icon: 'blue.png' },
+        { id: 3, icon: 'yellow.png' },
+        { id: 4, icon: 'green.png' },
+      ]
+    }
+    
+  }
 
   movePlayer(player: Player, steps: number) {
     const currentPosition = this.playerPositions[player.id];
@@ -139,11 +165,11 @@ export class SnakeAndLadderGameComponent {
       this.victoryMessage = `Player ${player.id} Won the game!`;
     }
 
-    if (this.snakes[newPosition]) {
-      this.playerPositions[player.id] = this.snakeEndPositions[newPosition];
-    } else if (this.ladders[newPosition]) {
-      this.playerPositions[player.id] = this.ladderEndPositions[newPosition];
-    }
+    // if (this.snakes[newPosition]) {
+    //   this.playerPositions[player.id] = this.snakeEndPositions[newPosition];
+    // } else if (this.ladders[newPosition]) {
+    //   this.playerPositions[player.id] = this.ladderEndPositions[newPosition];
+    // }
     this.newPos=newPosition;
   
     // Switch to the next player
