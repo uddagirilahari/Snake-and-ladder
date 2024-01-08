@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SnakeandladdergameComponent } from './snakeandladdergame.component';
+import { SnakeAndLadderGameComponent } from './snakeandladdergame.component';
 
 describe('SnakeandladdergameComponent', () => {
-  let component: SnakeandladdergameComponent;
-  let fixture: ComponentFixture<SnakeandladdergameComponent>;
+  let component: SnakeAndLadderGameComponent;
+  let fixture: ComponentFixture<SnakeAndLadderGameComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SnakeandladdergameComponent]
+      declarations: [SnakeAndLadderGameComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(SnakeandladdergameComponent);
+    fixture = TestBed.createComponent(SnakeAndLadderGameComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
